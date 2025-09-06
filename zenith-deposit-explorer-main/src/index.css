@@ -1,0 +1,176 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Fintech Dark Theme */
+    --background: 220 13% 5%;
+    --foreground: 240 6% 97%;
+
+    --card: 240 6% 97%;
+    --card-foreground: 220 13% 5%;
+
+    --popover: 240 6% 97%;
+    --popover-foreground: 220 13% 5%;
+
+    --primary: 318 100% 54%;
+    --primary-foreground: 240 6% 97%;
+
+    --secondary: 258 90% 66%;
+    --secondary-foreground: 240 6% 97%;
+
+    --muted: 220 9% 42%;
+    --muted-foreground: 220 9% 42%;
+
+    --accent: 191 100% 50%;
+    --accent-foreground: 220 13% 5%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 240 6% 97%;
+
+    --border: 220 9% 42%;
+    --input: 220 9% 42%;
+    --ring: 318 100% 54%;
+
+    --radius: 8px;
+
+    /* Fintech Brand Colors */
+    --fintech-pink: 326 100% 68%;    /* #FF5BBE */
+    --fintech-magenta: 318 100% 54%; /* #FF0099 */
+    --fintech-purple: 258 90% 66%;   /* #7C3AED */
+    --fintech-aqua: 191 100% 50%;    /* #00F0FF */
+    --fintech-dark: 220 13% 5%;      /* #0D0D12 */
+    --fintech-light: 240 6% 97%;     /* #F5F5F7 */
+    --fintech-grey: 220 9% 42%;      /* #6B7280 */
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--fintech-pink)), hsl(var(--fintech-magenta)));
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--fintech-purple)), hsl(var(--fintech-aqua)));
+    --gradient-card: linear-gradient(145deg, hsl(var(--fintech-light)), hsl(240 6% 95%));
+
+    --sidebar-background: 220 13% 5%;
+    --sidebar-foreground: 240 6% 97%;
+    --sidebar-primary: 318 100% 54%;
+    --sidebar-primary-foreground: 240 6% 97%;
+    --sidebar-accent: 220 9% 15%;
+    --sidebar-accent-foreground: 240 6% 97%;
+    --sidebar-border: 220 9% 15%;
+    --sidebar-ring: 318 100% 54%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-fintech-dark text-fintech-light font-inter;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-inter font-bold;
+  }
+
+  /* Financial data should use monospace */
+  .financial-data {
+    @apply font-inter-mono;
+  }
+}
+
+@layer components {
+  /* Modern Fintech Card Styles */
+  .fintech-card {
+    @apply bg-fintech-light/95 backdrop-blur-sm rounded-lg p-6 shadow-[0px_4px_10px_rgba(0,0,0,0.25)] hover:shadow-[0px_8px_20px_rgba(255,91,190,0.3)] transition-all duration-300 hover:scale-[1.02] hover:-translate-y-1 border border-fintech-grey/20;
+  }
+
+  .fintech-card-premium {
+    @apply bg-gradient-to-br from-fintech-light to-fintech-pink/10 backdrop-blur-sm rounded-lg p-6 shadow-[0px_4px_10px_rgba(0,0,0,0.25)] hover:shadow-[0px_8px_20px_rgba(255,0,153,0.4)] transition-all duration-300 hover:scale-[1.02] hover:-translate-y-1 border border-fintech-pink/30;
+  }
+
+  /* Hero Gradient Background */
+  .hero-gradient {
+    background: var(--gradient-primary);
+  }
+
+  /* Highlight Text for Interest Rates */
+  .highlight-rate {
+    @apply text-fintech-magenta font-bold financial-data;
+  }
+
+  /* Modern Fintech Button Variants */
+  .btn-fintech {
+    @apply bg-gradient-to-r from-fintech-pink to-fintech-magenta hover:from-fintech-magenta hover:to-fintech-pink text-white px-6 py-3 rounded-2xl font-medium transition-all duration-200 hover:scale-105 hover:shadow-[0px_4px_10px_rgba(255,91,190,0.4)];
+  }
+
+  .btn-fintech-outline {
+    @apply border-2 border-fintech-pink text-fintech-pink hover:bg-fintech-pink hover:text-white px-6 py-3 rounded-2xl font-medium transition-all duration-200 hover:scale-105 backdrop-blur-sm;
+  }
+
+  .btn-fintech-secondary {
+    @apply bg-gradient-to-r from-fintech-purple to-fintech-aqua hover:from-fintech-aqua hover:to-fintech-purple text-white px-6 py-3 rounded-2xl font-medium transition-all duration-200 hover:scale-105 hover:shadow-[0px_4px_10px_rgba(124,58,237,0.4)];
+  }
+
+  /* Floating Animation for Icons */
+  .float-icon {
+    @apply animate-float;
+  }
+
+  /* Card Grid */
+  .products-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 auto-rows-fr;
+  }
+
+  /* Glassmorphism effect */
+  .glass {
+    @apply backdrop-blur-sm bg-white/10 border border-white/20;
+  }
+
+  /* Financial numbers styling */
+  .financial-highlight {
+    @apply bg-gradient-to-r from-fintech-pink/20 to-fintech-magenta/20 px-3 py-2 rounded-lg border border-fintech-pink/30;
+  }
+}

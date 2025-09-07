@@ -1,0 +1,34 @@
+﻿# Maven
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+.mvn/
+
+# IDEs
+*.iml
+.idea/
+.project
+.classpath
+.settings/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Java
+*.class
+
+# Spring Boot
+spring.log
+
+# Coverage/Reports
+/site/
+.jacoco/
+
+# Node (if ever added)
+node_modules/
+
+# OneDrive temporary files
+~$*
